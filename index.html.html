@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serviço de Táxi e Fretamento | Atendimento Rápido</title>
+  <meta name="description" content="Táxi e Fretamento com atendimento rápido. Corridas, viagens e traslados com segurança e pontualidade. Chame no WhatsApp!" />
+  <style>
+    :root{
+      --bg:#070A12;
+      --card:#0C1020;
+      --line:rgba(255,255,255,.10);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --accent:#6D8CFF;
+      --accent2:#56F0B6;
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 18% 10%, rgba(109,140,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(86,240,182,.14), transparent 60%),
+        radial-gradient(1200px 700px at 50% 100%, rgba(109,140,255,.10), transparent 55%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:14px 16px;border:1px solid var(--line);
+      background: rgba(12,16,32,.55);
+      backdrop-filter: blur(10px);
+      border-radius:18px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      position:sticky;top:16px;z-index:50;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.3px}
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(109,140,255,.08);
+    }
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .navlinks a{
+      font-weight:700;color:var(--muted);padding:8px 10px;border-radius:12px;
+      border:1px solid transparent;
+    }
+    .navlinks a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.03)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);font-weight:900;cursor:pointer;
+    }
+    .btn:hover{background:rgba(255,255,255,.07)}
+    .btn.primary{
+      border-color: rgba(109,140,255,.55);
+      background: linear-gradient(180deg, rgba(109,140,255,.22), rgba(109,140,255,.08));
+    }
+    .btn.primary:hover{
+      border-color: rgba(109,140,255,.75);
+      background: linear-gradient(180deg, rgba(109,140,255,.30), rgba(109,140,255,.10));
+    }
+    .grid{
+      display:grid;gap:18px;
+    }
+    .hero{
+      margin-top:18px;
+      padding:34px;
+      border-radius:26px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;inset:-2px;
+      background:
+        radial-gradient(600px 260px at 20% 20%, rgba(109,140,255,.18), transparent 60%),
+        radial-gradient(600px 260px at 80% 30%, rgba(86,240,182,.12), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:center;
+    }
+    h1{
+      margin:0 0 12px 0;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .lead{
+      margin:0 0 18px 0;
+      font-size:16px;
+      line-height:1.5;
+      color:var(--muted);
+      max-width:56ch;
+    }
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px 0}
+    .badge{
+      font-weight:800;
+      color:rgba(234,240,255,.86);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.20);
+      padding:8px 10px;border-radius:999px;
+      font-size:13px;
+    }
+    .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      border-radius:22px;
+      padding:18px;
+    }
+    .stat{
+      display:grid;gap:12px;
+    }
+    .stat .row{
+      display:flex;justify-content:space-between;gap:14px;align-items:center;
+      padding:12px 12px;border:1px solid var(--line);border-radius:16px;
+      background: rgba(255,255,255,.03);
+    }
+    .k{font-weight:900}
+    .v{color:var(--muted);font-weight:700;text-align:right}
+    .section{
+      margin-top:18px;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:26px;
+      background: rgba(255,255,255,.02);
+    }
+    .section h2{
+      margin:0 0 10px 0;
+      font-size:26px;
+      letter-spacing:-.2px;
+    }
+    .section p{margin:0;color:var(--muted);line-height:1.6}
+    .cards{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .mini{
+      grid-column: span 4;
+      padding:16px;border-radius:20px;border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .mini h3{margin:0 0 8px 0;font-size:16px}
+    .mini p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+    .list{
+      margin:12px 0 0 0;padding:0;list-style:none;display:grid;gap:10px
+    }
+    .li{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px;border:1px solid var(--line);border-radius:16px;
+      background: rgba(255,255,255,.03);
+    }
+    .check{
+      width:18px;height:18px;border-radius:6px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      margin-top:2px;flex:0 0 auto;
+    }
+    .faq{margin-top:14px;display:grid;gap:10px}
+    details{
+      border:1px solid var(--line);border-radius:16px;
+      background: rgba(0,0,0,.18);
+      padding:12px 14px;
+    }
+    summary{cursor:pointer;font-weight:900}
+    details p{margin:10px 0 0 0;color:var(--muted)}
+    footer{
+      margin:18px 0 30px 0;
+      text-align:center;color:rgba(234,240,255,.55);
+      font-size:13px;
+    }
+
+    .float{
+      position:fixed;right:18px;bottom:18px;z-index:60;
+      border-radius:999px;border:1px solid rgba(86,240,182,.35);
+      background: rgba(86,240,182,.12);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    .float a{display:flex;gap:10px;align-items:center;padding:14px 16px;font-weight:1000}
+    .wa{
+      width:14px;height:14px;border-radius:4px;
+      background: var(--accent2);
+    }
+
+    @media (max-width: 900px){
+      h1{font-size:36px}
+      .hero-inner{grid-template-columns:1fr}
+      .mini{grid-column: span 12}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Táxi & Fretamento</span>
+      </div>
+
+      <div class="navlinks">
+        <a href="#servicos">Serviços</a>
+        <a href="#area">Área de atendimento</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="btn primary" href="https://wa.me/5511946270471?text=Olá!%20Quero%20fazer%20um%20orçamento%20de%20corrida/fretamento." target="_blank" rel="noopener">
+        Chamar no WhatsApp
+      </a>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="badges">
+            <span class="badge">Atendimento rápido</span>
+            <span class="badge">Segurança & pontualidade</span>
+            <span class="badge">Corridas e viagens</span>
+          </div>
+
+          <h1>Táxi e Fretamento com <span style="color:var(--accent2)">pontualidade</span> e preço justo.</h1>
+
+          <p class="lead">
+            Corridas na cidade, viagens, traslados e fretamento sob demanda.
+            Orçamento direto no WhatsApp, sem enrolação.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="https://wa.me/5511946270471?text=Olá!%20Quero%20fazer%20um%20orçamento%20agora." target="_blank" rel="noopener">
+              Solicitar orçamento agora
+            </a>
+            <a class="btn" href="tel:+5511946270471">Ligar: (11) 94627-0471</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stat">
+            <div class="row">
+              <div class="k">Disponibilidade</div>
+              <div class="v">Sob demanda</div>
+            </div>
+            <div class="row">
+              <div class="k">Serviços</div>
+              <div class="v">Táxi • Viagens • Fretamento</div>
+            </div>
+            <div class="row">
+              <div class="k">Contato</div>
+              <div class="v">(11) 94627-0471</div>
+            </div>
+            <div class="row">
+              <div class="k">Atendimento</div>
+              <div class="v">WhatsApp e ligação</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="section">
+      <h2>Serviços</h2>
+      <p>Escolha o que você precisa. Se for algo diferente, chama no WhatsApp que eu monto um orçamento.</p>
+
+      <div class="cards">
+        <div class="mini">
+          <h3>🚕 Corridas na cidade</h3>
+          <p>Atendimento rápido para deslocamentos do dia a dia com conforto e segurança.</p>
+          <ul class="list">
+            <li class="li"><span class="check"></span><span>Chamou, chegou</span></li>
+            <li class="li"><span class="check"></span><span>Rotas otimizadas</span></li>
+          </ul>
+        </div>
+
+        <div class="mini">
+          <h3>🧳 Viagens e traslados</h3>
+          <p>Viagens programadas, traslados e deslocamentos com horário marcado.</p>
+          <ul class="list">
+            <li class="li"><span class="check"></span><span>Pontualidade</span></li>
+            <li class="li"><span class="check"></span><span>Planejamento de rota</span></li>
+          </ul>
+        </div>
+
+        <div class="mini">
+          <h3>🚌 Fretamento (sob demanda)</h3>
+          <p>Fretamento para necessidades específicas: eventos, compromissos e deslocamentos recorrentes.</p>
+          <ul class="list">
+            <li class="li"><span class="check"></span><span>Orçamento personalizado</span></li>
+            <li class="li"><span class="check"></span><span>Atendimento direto</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="area" class="section">
+      <h2>Área de atendimento</h2>
+      <p>
+        Informe seu bairro/cidade no WhatsApp e eu confirmo disponibilidade e valor na hora.
+      </p>
+
+      <div class="cards">
+        <div class="mini">
+          <h3>✅ Como funciona</h3>
+          <p>Você manda origem + destino + horário (se tiver). Eu retorno com o valor e previsão.</p>
+        </div>
+        <div class="mini">
+          <h3>⏱️ Agendamento</h3>
+          <p>Para viagens e traslados, você pode agendar com antecedência.</p>
+        </div>
+        <div class="mini">
+          <h3>💬 Atendimento</h3>
+          <p>WhatsApp: <strong>(11) 94627-0471</strong> • Ligação disponível.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="section">
+      <h2>Depoimentos</h2>
+      <p>Alguns exemplos (você pode trocar pelos reais depois):</p>
+
+      <div class="cards">
+        <div class="mini">
+          <h3>⭐️⭐️⭐️⭐️⭐️</h3>
+          <p>“Chegou rápido e foi super educado. Recomendo!”</p>
+          <p style="margin-top:10px;color:rgba(234,240,255,.55);font-weight:800">— Cliente</p>
+        </div>
+        <div class="mini">
+          <h3>⭐️⭐️⭐️⭐️⭐️</h3>
+          <p>“Pontualidade impecável no traslado. Atendimento top.”</p>
+          <p style="margin-top:10px;color:rgba(234,240,255,.55);font-weight:800">— Cliente</p>
+        </div>
+        <div class="mini">
+          <h3>⭐️⭐️⭐️⭐️⭐️</h3>
+          <p>“Preço justo e viagem tranquila. Vou chamar de novo.”</p>
+          <p style="margin-top:10px;color:rgba(234,240,255,.55);font-weight:800">— Cliente</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>Perguntas frequentes</h2>
+      <p>Respostas rápidas para evitar dúvidas na hora de chamar.</p>
+
+      <div class="faq">
+        <details>
+          <summary>Como peço um orçamento?</summary>
+          <p>Chame no WhatsApp e envie: origem, destino e horário (se tiver). Eu retorno com o valor e previsão.</p>
+        </details>
+
+        <details>
+          <summary>Você faz viagens/traslados?</summary>
+          <p>Sim. Dá para agendar e confirmar horários com antecedência.</p>
+        </details>
+
+        <details>
+          <summary>Quais formas de contato?</summary>
+          <p>WhatsApp e ligação: <strong>(11) 94627-0471</strong>.</p>
+        </details>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn primary" href="https://wa.me/5511946270471?text=Olá!%20Quero%20um%20orçamento%20de%20corrida/fretamento." target="_blank" rel="noopener">
+          Chamar no WhatsApp
+        </a>
+        <a class="btn" href="tel:+5511946270471">Ligar agora</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Táxi & Fretamento • Contato: (11) 94627-0471
+    </footer>
+  </div>
+
+  <div class="float">
+    <a href="https://wa.me/5511946270471?text=Olá!%20Quero%20um%20orçamento%20agora." target="_blank" rel="noopener">
+      <span class="wa"></span> WhatsApp
+    </a>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
